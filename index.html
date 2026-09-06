@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LabelGuard - Product Compliance</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Label<span>Guard</span></div>
+
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Inspections</a>
+            <a href="#">History</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+            <h1>Product Compliance Inspection</h1>
+
+            <p>
+                Upload a product label and check its mandatory declarations.
+            </p>
+        </section>
+
+
+        <!-- Upload Section -->
+
+        <section class="card">
+
+            <h2>📦 Scan Product</h2>
+
+            <p class="small">
+                Upload a clear image of the product label.
+            </p>
+
+            <div class="upload-box">
+
+                <input
+                    type="file"
+                    id="productImage"
+                    accept="image/*"
+                >
+
+                <label for="productImage">
+                    📷 Choose Product Image
+                </label>
+
+                <p id="fileName">No image selected</p>
+
+            </div>
+
+
+            <!-- Image Preview -->
+
+            <div id="previewContainer" class="preview hidden">
+
+                <h3>Product Preview</h3>
+
+                <img id="previewImage" src="" alt="Product Preview">
+
+            </div>
+
+
+            <button id="analyzeBtn">
+                Analyze Product
+            </button>
+
+        </section>
+
+
+        <!-- Loading -->
+
+        <section id="loading" class="card hidden">
+
+            <h2>🤖 Analyzing Label...</h2>
+
+            <div class="loader"></div>
+
+            <p>
+                Extracting product information and checking compliance.
+            </p>
+
+        </section>
+
+
+        <!-- Results -->
+
+        <section id="results" class="card hidden">
+
+            <h2>Compliance Result</h2>
+
+
+            <div class="score">
+
+                <div id="scoreNumber">
+                    87
+                </div>
+
+                <p>Compliance Score</p>
+
+            </div>
+
+
+            <h3>Declaration Checks</h3>
+
+
+            <div class="checks">
+
+                <div class="check pass">
+                    ✓ Manufacturer
+                </div>
+
+                <div class="check pass">
+                    ✓ Net Quantity
+                </div>
+
+                <div class="check pass">
+                    ✓ MRP
+                </div>
+
+                <div class="check pass">
+                    ✓ Manufacturing Date
+                </div>
+
+                <div class="check warning">
+                    ⚠ Consumer Care
+                </div>
+
+            </div>
+
+
+            <div class="violation">
+
+                <h3>⚠ Issue Detected</h3>
+
+                <p>
+                    Consumer-care declaration could not be detected
+                    in the submitted label image.
+                </p>
+
+            </div>
+
+
+            <button id="reportBtn">
+                Generate Inspection Report
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            LabelGuard Prototype • SIH 2026
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

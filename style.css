@@ -1,0 +1,316 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+
+/* Header */
+
+header {
+    height: 70px;
+    background: #111827;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: white;
+}
+
+
+/* Main */
+
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+
+/* Hero */
+
+.hero {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.hero h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #6b7280;
+}
+
+
+/* Card */
+
+.card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.small {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+
+/* Upload */
+
+.upload-box {
+    border: 2px dashed #cbd5e1;
+
+    padding: 40px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
+.upload-box input {
+    display: none;
+}
+
+.upload-box label {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    background: #111827;
+
+    color: white;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+#fileName {
+    margin-top: 15px;
+
+    color: #6b7280;
+}
+
+
+/* Preview */
+
+.preview {
+    margin-top: 20px;
+}
+
+.preview img {
+    display: block;
+
+    width: 250px;
+    max-height: 300px;
+
+    object-fit: contain;
+
+    margin: 15px auto;
+
+    border-radius: 8px;
+}
+
+
+/* Button */
+
+button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #0284c7;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0369a1;
+}
+
+
+/* Loading */
+
+.loader {
+    width: 45px;
+    height: 45px;
+
+    border: 5px solid #e5e7eb;
+    border-top: 5px solid #0284c7;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+
+    margin: 25px auto;
+}
+
+@keyframes spin {
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* Score */
+
+.score {
+    text-align: center;
+
+    margin: 30px 0;
+}
+
+#scoreNumber {
+    font-size: 60px;
+
+    font-weight: bold;
+
+    color: #0284c7;
+}
+
+.score p {
+    color: #6b7280;
+}
+
+
+/* Checks */
+
+.checks {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin: 20px 0;
+}
+
+.check {
+    padding: 15px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+.pass {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.warning {
+    background: #fef3c7;
+
+    color: #92400e;
+}
+
+
+/* Violation */
+
+.violation {
+    background: #fff7ed;
+
+    border-left: 5px solid #f97316;
+
+    padding: 20px;
+
+    margin: 25px 0;
+}
+
+.violation h3 {
+    margin-bottom: 8px;
+}
+
+
+/* Hidden */
+
+.hidden {
+    display: none;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #6b7280;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .checks {
+        grid-template-columns: 1fr;
+    }
+
+}
