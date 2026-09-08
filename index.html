@@ -4,172 +4,1162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LabelGuard - Product Compliance</title>
+    <title>LabelGuard | Compliance Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">Label<span>Guard</span></div>
+<!-- ================= SIDEBAR ================= -->
 
-        <nav>
-            <a href="#">Dashboard</a>
-            <a href="#">Inspections</a>
-            <a href="#">History</a>
-        </nav>
+<aside class="sidebar">
+
+    <div class="brand">
+        <div class="brand-icon">
+            <span>✓</span>
+        </div>
+
+        <div>
+            <h2>LabelGuard</h2>
+            <p>Compliance Intelligence</p>
+        </div>
+    </div>
+
+    <nav class="navigation">
+
+        <button class="nav-item active" data-page="dashboard">
+            <span class="nav-icon">⌂</span>
+            Dashboard
+        </button>
+
+        <button class="nav-item" data-page="inspection">
+            <span class="nav-icon">⌕</span>
+            New Inspection
+        </button>
+
+        <button class="nav-item" data-page="history">
+            <span class="nav-icon">◷</span>
+            Inspection History
+        </button>
+
+        <button class="nav-item" data-page="products">
+            <span class="nav-icon">▣</span>
+            Products
+        </button>
+
+        <button class="nav-item" data-page="rules">
+            <span class="nav-icon">⚖</span>
+            Rule Configuration
+        </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <div class="system-status">
+            <span class="status-dot"></span>
+
+            <div>
+                <strong>System Online</strong>
+                <small>All services operational</small>
+            </div>
+        </div>
+
+        <div class="user-card">
+            <div class="avatar">TA</div>
+
+            <div class="user-info">
+                <strong>Tanay</strong>
+                <small>Enforcement Officer</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <!-- TOP BAR -->
+
+    <header class="topbar">
+
+        <div>
+            <p class="breadcrumb">Workspace / <span id="breadcrumb">Dashboard</span></p>
+        </div>
+
+        <div class="top-actions">
+
+            <button class="icon-button" title="Notifications">
+                ♢
+                <span class="notification-dot"></span>
+            </button>
+
+            <div class="top-user">
+                <div class="avatar small">TA</div>
+
+                <div>
+                    <strong>Tanay</strong>
+                    <span>Officer</span>
+                </div>
+            </div>
+
+        </div>
+
     </header>
 
 
-    <main>
+    <!-- ================= DASHBOARD ================= -->
 
-        <section class="hero">
-            <h1>Product Compliance Inspection</h1>
+    <section id="dashboard" class="page active-page">
 
-            <p>
-                Upload a product label and check its mandatory declarations.
-            </p>
-        </section>
+        <div class="page-heading">
 
-
-        <!-- Upload Section -->
-
-        <section class="card">
-
-            <h2>📦 Scan Product</h2>
-
-            <p class="small">
-                Upload a clear image of the product label.
-            </p>
-
-            <div class="upload-box">
-
-                <input
-                    type="file"
-                    id="productImage"
-                    accept="image/*"
-                >
-
-                <label for="productImage">
-                    📷 Choose Product Image
-                </label>
-
-                <p id="fileName">No image selected</p>
-
+            <div>
+                <span class="eyebrow">OVERVIEW</span>
+                <h1>Compliance Dashboard</h1>
+                <p>Monitor packaged commodity inspections and regulatory compliance.</p>
             </div>
 
-
-            <!-- Image Preview -->
-
-            <div id="previewContainer" class="preview hidden">
-
-                <h3>Product Preview</h3>
-
-                <img id="previewImage" src="" alt="Product Preview">
-
-            </div>
-
-
-            <button id="analyzeBtn">
-                Analyze Product
+            <button class="primary-btn" onclick="openPage('inspection')">
+                <span>+</span>
+                New Inspection
             </button>
 
-        </section>
+        </div>
 
 
-        <!-- Loading -->
+        <!-- STAT CARDS -->
 
-        <section id="loading" class="card hidden">
+        <div class="stats-grid">
 
-            <h2>🤖 Analyzing Label...</h2>
-
-            <div class="loader"></div>
-
-            <p>
-                Extracting product information and checking compliance.
-            </p>
-
-        </section>
-
-
-        <!-- Results -->
-
-        <section id="results" class="card hidden">
-
-            <h2>Compliance Result</h2>
-
-
-            <div class="score">
-
-                <div id="scoreNumber">
-                    87
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Total Inspections</span>
+                    <div class="stat-icon blue">⌕</div>
                 </div>
 
-                <p>Compliance Score</p>
+                <div class="stat-number">248</div>
+
+                <div class="stat-change positive">
+                    ↑ 12.4%
+                    <span>vs last month</span>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Compliant Products</span>
+                    <div class="stat-icon green">✓</div>
+                </div>
+
+                <div class="stat-number">184</div>
+
+                <div class="stat-change positive">
+                    ↑ 8.2%
+                    <span>vs last month</span>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Violations Found</span>
+                    <div class="stat-icon red">!</div>
+                </div>
+
+                <div class="stat-number">42</div>
+
+                <div class="stat-change negative">
+                    ↑ 4.8%
+                    <span>requires attention</span>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Needs Review</span>
+                    <div class="stat-icon orange">◷</div>
+                </div>
+
+                <div class="stat-number">22</div>
+
+                <div class="stat-change neutral">
+                    8.9%
+                    <span>of inspections</span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- DASHBOARD GRID -->
+
+        <div class="dashboard-grid">
+
+            <div class="panel chart-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Inspection Activity</h3>
+                        <p>Inspection volume over the last 7 days</p>
+                    </div>
+
+                    <select class="period-select">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                    </select>
+
+                </div>
+
+                <div class="chart">
+
+                    <div class="y-labels">
+                        <span>40</span>
+                        <span>30</span>
+                        <span>20</span>
+                        <span>10</span>
+                        <span>0</span>
+                    </div>
+
+                    <div class="chart-area">
+
+                        <div class="grid-line one"></div>
+                        <div class="grid-line two"></div>
+                        <div class="grid-line three"></div>
+                        <div class="grid-line four"></div>
+
+                        <svg viewBox="0 0 700 240" preserveAspectRatio="none">
+
+                            <defs>
+                                <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-opacity=".22"/>
+                                    <stop offset="100%" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+
+                            <path
+                                d="M0 180
+                                   C70 165, 80 130, 140 145
+                                   C200 160, 220 105, 280 120
+                                   C340 135, 360 90, 420 105
+                                   C480 120, 500 55, 560 80
+                                   C610 100, 650 50, 700 35
+                                   L700 240
+                                   L0 240 Z"
+                                fill="url(#areaGradient)"
+                            />
+
+                            <path
+                                d="M0 180
+                                   C70 165, 80 130, 140 145
+                                   C200 160, 220 105, 280 120
+                                   C340 135, 360 90, 420 105
+                                   C480 120, 500 55, 560 80
+                                   C610 100, 650 50, 700 35"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="3"
+                                class="chart-line"
+                            />
+
+                            <circle cx="700" cy="35" r="5" class="chart-point"/>
+
+                        </svg>
+
+                        <div class="x-labels">
+                            <span>Mon</span>
+                            <span>Tue</span>
+                            <span>Wed</span>
+                            <span>Thu</span>
+                            <span>Fri</span>
+                            <span>Sat</span>
+                            <span>Sun</span>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <h3>Declaration Checks</h3>
+            <!-- COMPLIANCE DISTRIBUTION -->
 
+            <div class="panel distribution-panel">
 
-            <div class="checks">
-
-                <div class="check pass">
-                    ✓ Manufacturer
+                <div class="panel-header">
+                    <div>
+                        <h3>Compliance Status</h3>
+                        <p>Current inspection distribution</p>
+                    </div>
                 </div>
 
-                <div class="check pass">
-                    ✓ Net Quantity
+                <div class="donut-container">
+
+                    <div class="donut">
+                        <div>
+                            <strong>248</strong>
+                            <span>Inspections</span>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="check pass">
-                    ✓ MRP
+                <div class="legend">
+
+                    <div>
+                        <span class="legend-color compliant"></span>
+                        <span>Compliant</span>
+                        <strong>74.2%</strong>
+                    </div>
+
+                    <div>
+                        <span class="legend-color violation"></span>
+                        <span>Non-compliant</span>
+                        <strong>16.9%</strong>
+                    </div>
+
+                    <div>
+                        <span class="legend-color review"></span>
+                        <span>Needs Review</span>
+                        <strong>8.9%</strong>
+                    </div>
+
                 </div>
 
-                <div class="check pass">
-                    ✓ Manufacturing Date
+            </div>
+
+        </div>
+
+
+        <!-- RECENT INSPECTIONS -->
+
+        <div class="panel recent-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h3>Recent Inspections</h3>
+                    <p>Latest product compliance checks</p>
                 </div>
 
-                <div class="check warning">
-                    ⚠ Consumer Care
+                <button class="text-btn" onclick="openPage('history')">
+                    View all →
+                </button>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>PRODUCT</th>
+                            <th>MANUFACTURER</th>
+                            <th>DATE</th>
+                            <th>SCORE</th>
+                            <th>STATUS</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <div class="product-cell">
+                                    <div class="product-placeholder">🥫</div>
+                                    <strong>Premium Tomato Ketchup</strong>
+                                </div>
+                            </td>
+
+                            <td>Fresh Foods Pvt. Ltd.</td>
+                            <td>08 Sep 2026</td>
+                            <td><strong>96/100</strong></td>
+
+                            <td>
+                                <span class="badge success">● Compliant</span>
+                            </td>
+
+                            <td>
+                                <button class="row-btn">•••</button>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <div class="product-cell">
+                                    <div class="product-placeholder">🍪</div>
+                                    <strong>Butter Cookies</strong>
+                                </div>
+                            </td>
+
+                            <td>Sunrise Foods</td>
+                            <td>08 Sep 2026</td>
+                            <td><strong>72/100</strong></td>
+
+                            <td>
+                                <span class="badge warning">● Needs Review</span>
+                            </td>
+
+                            <td>
+                                <button class="row-btn">•••</button>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <div class="product-cell">
+                                    <div class="product-placeholder">🧴</div>
+                                    <strong>Herbal Shampoo</strong>
+                                </div>
+                            </td>
+
+                            <td>Nature Care India</td>
+                            <td>07 Sep 2026</td>
+                            <td><strong>54/100</strong></td>
+
+                            <td>
+                                <span class="badge danger">● Non-compliant</span>
+                            </td>
+
+                            <td>
+                                <button class="row-btn">•••</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INSPECTION ================= -->
+
+    <section id="inspection" class="page">
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">INSPECTION</span>
+                <h1>New Product Inspection</h1>
+                <p>Upload a product label to perform an automated compliance assessment.</p>
+            </div>
+
+        </div>
+
+
+        <div class="inspection-layout">
+
+            <div class="panel upload-panel">
+
+                <div class="section-title">
+                    <div class="step-number">01</div>
+
+                    <div>
+                        <h3>Product Image</h3>
+                        <p>Upload a clear photograph of the package or label.</p>
+                    </div>
+                </div>
+
+
+                <div id="drop-zone" class="drop-zone">
+
+                    <input
+                        type="file"
+                        id="file-input"
+                        accept="image/*"
+                        hidden
+                    >
+
+                    <div id="upload-content">
+
+                        <div class="upload-icon">↑</div>
+
+                        <h3>Drop your product image here</h3>
+
+                        <p>
+                            or
+                            <button id="browse-btn" class="inline-link">
+                                browse files
+                            </button>
+                        </p>
+
+                        <small>PNG, JPG or WEBP • Maximum 10 MB</small>
+
+                    </div>
+
+
+                    <div id="preview-container" class="preview-container hidden">
+
+                        <img id="preview-image" alt="Product preview">
+
+                        <div class="preview-info">
+                            <strong id="file-name">product.jpg</strong>
+                            <span id="file-size">0 KB</span>
+
+                            <button id="remove-image" class="remove-btn">
+                                Remove image
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="demo-box">
+
+                    <div>
+                        <strong>Want to test the system?</strong>
+                        <span>Load a sample product package.</span>
+                    </div>
+
+                    <button id="demo-btn" class="secondary-btn">
+                        Load Demo
+                    </button>
+
                 </div>
 
             </div>
 
 
-            <div class="violation">
+            <!-- PRODUCT DETAILS -->
 
-                <h3>⚠ Issue Detected</h3>
+            <div class="panel details-panel">
 
-                <p>
-                    Consumer-care declaration could not be detected
-                    in the submitted label image.
-                </p>
+                <div class="section-title">
+                    <div class="step-number">02</div>
+
+                    <div>
+                        <h3>Product Details</h3>
+                        <p>Provide additional information for the inspection.</p>
+                    </div>
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group full">
+                        <label>Product Name</label>
+                        <input id="product-name" type="text" placeholder="e.g. Premium Tomato Ketchup">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <input id="brand-name" type="text" placeholder="Brand name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Manufacturer</label>
+                        <input id="manufacturer" type="text" placeholder="Manufacturer">
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Inspection Location</label>
+                        <input id="location" type="text" placeholder="Store / Market / Warehouse">
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Inspector Notes <span>(optional)</span></label>
+                        <textarea id="notes" rows="4" placeholder="Add any observations..."></textarea>
+                    </div>
+
+                </div>
+
+
+                <button id="analyze-btn" class="primary-btn analyze-btn">
+                    <span>⌕</span>
+                    Analyze Product
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SCAN LOADING -->
+
+        <div id="analysis-loader" class="analysis-loader hidden">
+
+            <div class="loader-ring"></div>
+
+            <h3>Analyzing Product Label</h3>
+
+            <p id="analysis-step">Preparing image...</p>
+
+            <div class="progress-track">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+        </div>
+
+
+        <!-- RESULTS -->
+
+        <div id="results-section" class="results-section hidden">
+
+            <div class="result-header">
+
+                <div>
+                    <span class="eyebrow">ANALYSIS COMPLETE</span>
+                    <h2>Compliance Assessment</h2>
+                    <p>Automated inspection results based on detected package declarations.</p>
+                </div>
+
+                <button class="secondary-btn" onclick="window.print()">
+                    ↓ Export Report
+                </button>
 
             </div>
 
 
-            <button id="reportBtn">
-                Generate Inspection Report
+            <div class="result-overview">
+
+                <div class="score-card">
+
+                    <div class="score-circle">
+
+                        <svg viewBox="0 0 120 120">
+
+                            <circle
+                                cx="60"
+                                cy="60"
+                                r="50"
+                                class="score-bg"
+                            />
+
+                            <circle
+                                id="score-ring"
+                                cx="60"
+                                cy="60"
+                                r="50"
+                                class="score-progress"
+                            />
+
+                        </svg>
+
+                        <div class="score-value">
+                            <strong id="score-number">87</strong>
+                            <span>/100</span>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <span class="eyebrow">COMPLIANCE SCORE</span>
+                        <h3 id="result-status">Needs Review</h3>
+                        <p>Overall assessment</p>
+                    </div>
+
+                </div>
+
+
+                <div class="risk-card">
+
+                    <div class="risk-icon">!</div>
+
+                    <div>
+                        <span>ATTENTION REQUIRED</span>
+                        <strong id="violation-count">2 potential issues detected</strong>
+                        <p>Review the highlighted findings before final approval.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHECKS -->
+
+            <div class="panel checks-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Declaration Checks</h3>
+                        <p>Detected declarations and rule validation</p>
+                    </div>
+
+                    <span class="ai-tag">AUTOMATED ANALYSIS</span>
+
+                </div>
+
+
+                <div class="checks-list">
+
+                    <div class="check-item pass">
+                        <div class="check-status">✓</div>
+
+                        <div class="check-main">
+                            <strong>Manufacturer / Packer Details</strong>
+                            <span>Manufacturer name and address detected</span>
+                        </div>
+
+                        <div class="check-result">PASS</div>
+                    </div>
+
+
+                    <div class="check-item pass">
+                        <div class="check-status">✓</div>
+
+                        <div class="check-main">
+                            <strong>Net Quantity</strong>
+                            <span>Net quantity declaration detected: 500 g</span>
+                        </div>
+
+                        <div class="check-result">PASS</div>
+                    </div>
+
+
+                    <div class="check-item pass">
+                        <div class="check-status">✓</div>
+
+                        <div class="check-main">
+                            <strong>Maximum Retail Price</strong>
+                            <span>MRP declaration detected: ₹120</span>
+                        </div>
+
+                        <div class="check-result">PASS</div>
+                    </div>
+
+
+                    <div class="check-item pass">
+                        <div class="check-status">✓</div>
+
+                        <div class="check-main">
+                            <strong>Date of Manufacture / Packing</strong>
+                            <span>Month and year declaration detected</span>
+                        </div>
+
+                        <div class="check-result">PASS</div>
+                    </div>
+
+
+                    <div class="check-item fail">
+                        <div class="check-status">!</div>
+
+                        <div class="check-main">
+                            <strong>Consumer Care Details</strong>
+                            <span>Required consumer care information could not be confidently detected</span>
+                        </div>
+
+                        <div class="check-result">REVIEW</div>
+                    </div>
+
+
+                    <div class="check-item fail">
+                        <div class="check-status">!</div>
+
+                        <div class="check-main">
+                            <strong>Declaration Readability</strong>
+                            <span>Potentially insufficient text size detected in one declaration area</span>
+                        </div>
+
+                        <div class="check-result">REVIEW</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FINDINGS -->
+
+            <div class="panel findings-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Potential Violations</h3>
+                        <p>Issues requiring inspector attention</p>
+                    </div>
+                </div>
+
+
+                <div class="finding">
+
+                    <div class="finding-number">01</div>
+
+                    <div class="finding-content">
+                        <div class="finding-heading">
+                            <strong>Consumer Care Information</strong>
+                            <span class="badge warning">Medium</span>
+                        </div>
+
+                        <p>
+                            Consumer care details were not confidently identified
+                            from the uploaded package image.
+                        </p>
+
+                        <small>
+                            Recommendation: Verify the declaration manually against the physical package.
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="finding">
+
+                    <div class="finding-number">02</div>
+
+                    <div class="finding-content">
+                        <div class="finding-heading">
+                            <strong>Text Readability</strong>
+                            <span class="badge danger">High</span>
+                        </div>
+
+                        <p>
+                            One declaration area appears smaller than the expected
+                            readability threshold.
+                        </p>
+
+                        <small>
+                            Recommendation: Inspect the original packaging for confirmation.
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-actions">
+
+                <button class="secondary-btn" onclick="openPage('inspection')">
+                    New Inspection
+                </button>
+
+                <button class="primary-btn" onclick="saveInspection()">
+                    ✓ Save Inspection
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HISTORY ================= -->
+
+    <section id="history" class="page">
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">REPOSITORY</span>
+                <h1>Inspection History</h1>
+                <p>Search and review previously analyzed products.</p>
+            </div>
+
+            <button class="primary-btn" onclick="openPage('inspection')">
+                + New Inspection
             </button>
 
-        </section>
+        </div>
 
-    </main>
 
+        <div class="panel">
+
+            <div class="filter-bar">
+
+                <div class="search-box">
+                    <span>⌕</span>
+                    <input id="history-search" type="text" placeholder="Search products, manufacturers...">
+                </div>
+
+                <select>
+                    <option>All statuses</option>
+                    <option>Compliant</option>
+                    <option>Needs Review</option>
+                    <option>Non-compliant</option>
+                </select>
+
+                <button class="secondary-btn">Filter</button>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table id="history-table">
+
+                    <thead>
+                        <tr>
+                            <th>PRODUCT</th>
+                            <th>MANUFACTURER</th>
+                            <th>INSPECTED</th>
+                            <th>SCORE</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>Premium Tomato Ketchup</strong></td>
+                            <td>Fresh Foods Pvt. Ltd.</td>
+                            <td>08 Sep 2026</td>
+                            <td>96/100</td>
+                            <td><span class="badge success">● Compliant</span></td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Butter Cookies</strong></td>
+                            <td>Sunrise Foods</td>
+                            <td>08 Sep 2026</td>
+                            <td>72/100</td>
+                            <td><span class="badge warning">● Needs Review</span></td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Herbal Shampoo</strong></td>
+                            <td>Nature Care India</td>
+                            <td>07 Sep 2026</td>
+                            <td>54/100</td>
+                            <td><span class="badge danger">● Non-compliant</span></td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Premium Basmati Rice</strong></td>
+                            <td>Golden Harvest</td>
+                            <td>06 Sep 2026</td>
+                            <td>100/100</td>
+                            <td><span class="badge success">● Compliant</span></td>
+                            <td><button class="view-btn">View</button></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section id="products" class="page">
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">PRODUCT REPOSITORY</span>
+                <h1>Products</h1>
+                <p>Registered packaged commodities and their compliance records.</p>
+            </div>
+
+        </div>
+
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="big-product-icon">🥫</div>
+                <div>
+                    <h3>Premium Tomato Ketchup</h3>
+                    <p>Fresh Foods Pvt. Ltd.</p>
+                </div>
+                <div class="product-card-footer">
+                    <span class="badge success">Compliant</span>
+                    <strong>96%</strong>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="big-product-icon">🍪</div>
+                <div>
+                    <h3>Butter Cookies</h3>
+                    <p>Sunrise Foods</p>
+                </div>
+                <div class="product-card-footer">
+                    <span class="badge warning">Review</span>
+                    <strong>72%</strong>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="big-product-icon">🧴</div>
+                <div>
+                    <h3>Herbal Shampoo</h3>
+                    <p>Nature Care India</p>
+                </div>
+                <div class="product-card-footer">
+                    <span class="badge danger">Violation</span>
+                    <strong>54%</strong>
+                </div>
+            </div>
+
+
+            <div class="product-card">
+                <div class="big-product-icon">🍚</div>
+                <div>
+                    <h3>Premium Basmati Rice</h3>
+                    <p>Golden Harvest</p>
+                </div>
+                <div class="product-card-footer">
+                    <span class="badge success">Compliant</span>
+                    <strong>100%</strong>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RULES ================= -->
+
+    <section id="rules" class="page">
+
+        <div class="page-heading">
+
+            <div>
+                <span class="eyebrow">LEGAL METROLOGY</span>
+                <h1>Rule Configuration</h1>
+                <p>Compliance checks used by the LabelGuard inspection engine.</p>
+            </div>
+
+        </div>
+
+
+        <div class="panel rules-panel">
+
+            <div class="rule-row">
+                <div class="rule-number">01</div>
+
+                <div class="rule-info">
+                    <strong>Manufacturer / Packer Declaration</strong>
+                    <p>Verify name and address of manufacturer, packer or importer.</p>
+                </div>
+
+                <span class="rule-enabled">Enabled</span>
+            </div>
+
+
+            <div class="rule-row">
+                <div class="rule-number">02</div>
+
+                <div class="rule-info">
+                    <strong>Net Quantity</strong>
+                    <p>Verify presence and format of net quantity declaration.</p>
+                </div>
+
+                <span class="rule-enabled">Enabled</span>
+            </div>
+
+
+            <div class="rule-row">
+                <div class="rule-number">03</div>
+
+                <div class="rule-info">
+                    <strong>Maximum Retail Price</strong>
+                    <p>Verify MRP declaration and required pricing information.</p>
+                </div>
+
+                <span class="rule-enabled">Enabled</span>
+            </div>
+
+
+            <div class="rule-row">
+                <div class="rule-number">04</div>
+
+                <div class="rule-info">
+                    <strong>Date Declaration</strong>
+                    <p>Check applicable month/year manufacturing, packing or import information.</p>
+                </div>
+
+                <span class="rule-enabled">Enabled</span>
+            </div>
+
+
+            <div class="rule-row">
+                <div class="rule-number">05</div>
+
+                <div class="rule-info">
+                    <strong>Consumer Care Details</strong>
+                    <p>Check consumer complaint/contact information.</p>
+                </div>
+
+                <span class="rule-enabled">Enabled</span>
+            </div>
+
+
+            <div class="rule-row">
+                <div class="rule-number">06</div>
+
+                <div class="rule-info">
+                    <strong>Readability & Font Analysis</strong>
+                    <p>Flag potentially unreadable or undersized declaration text.</p>
+                </div>
+
+                <span class="rule-enabled">Enabled</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
 
     <footer>
-
-        <p>
-            LabelGuard Prototype • SIH 2026
-        </p>
-
+        <span>LabelGuard</span>
+        <span>•</span>
+        <span>Legal Metrology Compliance Platform</span>
+        <span>•</span>
+        <span>v1.0 Prototype</span>
     </footer>
 
+</main>
 
-    <script src="script.js"></script>
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+    <span class="toast-icon">✓</span>
+    <div>
+        <strong id="toast-title">Success</strong>
+        <p id="toast-message">Operation completed.</p>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
