@@ -77,9 +77,7 @@ function improveAccessibility() {
     document.querySelectorAll(".form-group label").forEach((label) => {
         const input = label.parentElement?.querySelector("input, textarea, select");
         if (input && !label.htmlFor) {
-            if (!input.id) {
-                input.id = `field-${Math.random().toString(36).slice(2, 9)}`;
-            }
+            if (!input.id) input.id = `field-${Math.random().toString(36).slice(2, 9)}`;
             label.htmlFor = input.id;
         }
     });
@@ -87,6 +85,12 @@ function improveAccessibility() {
     document.querySelectorAll("table").forEach((table) => {
         table.querySelectorAll("thead th").forEach((th) => th.setAttribute("scope", "col"));
     });
+
+    if (dropZone) {
+        dropZone.setAttribute("tabindex", "0");
+        dropZone.setAttribute("role", "button");
+        dropZone.setAttribute("aria-label", "Upload a product image");
+    }
 
     if (analysisStep) analysisStep.setAttribute("aria-live", "polite");
     if (toast) {
@@ -99,6 +103,15 @@ function improveAccessibility() {
         progressBar.setAttribute("aria-valuemax", "100");
         progressBar.setAttribute("aria-valuenow", "0");
     }
+
+    const resultDescription = resultsSection?.querySelector(".result-header p");
+    if (resultDescription) {
+        resultDescription.textContent = "Frontend demo results based on simulated package declarations.";
+    }
+
+    document.querySelectorAll(".ai-tag").forEach((tag) => {
+        tag.textContent = "SIMULATED ANALYSIS";
+    });
 }
 
 /* ================= PAGE NAVIGATION ================= */
@@ -222,10 +235,6 @@ if (dropZone && fileInput) {
         const file = event.dataTransfer?.files?.[0];
         if (file) handleFile(file);
     });
-
-    dropZone.setAttribute("tabindex", "0");
-    dropZone.setAttribute("role", "button");
-    dropZone.setAttribute("aria-label", "Upload a product image");
 }
 
 fileInput?.addEventListener("change", (event) => {
