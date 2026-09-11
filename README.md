@@ -108,6 +108,8 @@ GitHub: https://github.com/baintanay007
 
 ---
 
-## License
+## License & Copyright
 
-No open-source license has currently been declared for this project. All rights remain with the repository owner unless otherwise stated.
+**Copyright © 2026 Tanay Bain. All rights reserved.**
+
+This project is proprietary unless otherwise stated. See the [`LICENSE`](LICENSE) file for the permissions and restrictions that apply to the repository.
