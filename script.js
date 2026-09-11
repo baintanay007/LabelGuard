@@ -10,7 +10,15 @@ const ALLOWED_IMAGE_TYPES = new Set([
     "image/webp"
 ]);
 const STORAGE_KEY = "labelguard_inspections";
+const SESSION_KEY = "labelguard_demo_session";
+const USER_KEY = "labelguard_demo_user";
 const DEMO_SCORE = 87;
+
+/* ================= DEMO SESSION GUARD ================= */
+
+if (localStorage.getItem(SESSION_KEY) !== "active") {
+    window.location.replace("login.html");
+}
 
 let selectedFile = null;
 let currentPage = "dashboard";
@@ -68,7 +76,11 @@ function improveAccessibility() {
     if (iconButton) iconButton.setAttribute("aria-label", "View notifications");
 
     const moreButton = document.querySelector(".more-btn");
-    if (moreButton) moreButton.setAttribute("aria-label", "Open user menu");
+    if (moreButton) {
+        moreButton.textContent = "Logout";
+        moreButton.setAttribute("aria-label", "Log out of LabelGuard");
+        moreButton.title = "Log out";
+    }
 
     document.querySelectorAll(".row-btn").forEach((button) => {
         button.setAttribute("aria-label", "View inspection actions");
@@ -493,6 +505,13 @@ window.showToast = showToast;
 
 document.querySelector(".icon-button")?.addEventListener("click", () => {
     showToast("Notifications", "No new notifications in this frontend demo.");
+});
+
+const logoutButton = document.querySelector(".more-btn");
+logoutButton?.addEventListener("click", () => {
+    localStorage.removeItem(SESSION_KEY);
+    localStorage.removeItem(USER_KEY);
+    window.location.replace("login.html");
 });
 
 document.querySelectorAll(".row-btn").forEach((button) => {
