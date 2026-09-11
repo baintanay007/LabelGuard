@@ -7,11 +7,18 @@ const message = document.getElementById("form-message");
 const togglePassword = document.getElementById("toggle-password");
 const forgotPassword = document.getElementById("forgot-password");
 
+const SESSION_KEY = "labelguard_demo_session";
+
 const setError = (element, text) => {
-    element.textContent = text;
+    if (element) element.textContent = text;
 };
 
 const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+// If the user is already signed in to the local demo session, don't show the login form again.
+if (localStorage.getItem(SESSION_KEY) === "active") {
+    window.location.replace("index.html");
+}
 
 email?.addEventListener("input", () => setError(emailError, ""));
 password?.addEventListener("input", () => setError(passwordError, ""));
@@ -25,14 +32,14 @@ togglePassword?.addEventListener("click", () => {
 
 forgotPassword?.addEventListener("click", (event) => {
     event.preventDefault();
-    message.textContent = "Password recovery will be enabled when the production authentication provider is connected.";
+    if (message) message.textContent = "Password recovery will be enabled when a production authentication provider is connected.";
 });
 
 form?.addEventListener("submit", (event) => {
     event.preventDefault();
     setError(emailError, "");
     setError(passwordError, "");
-    message.textContent = "";
+    if (message) message.textContent = "";
 
     const emailValue = email.value.trim();
     const passwordValue = password.value;
@@ -50,5 +57,13 @@ form?.addEventListener("submit", (event) => {
 
     if (!valid) return;
 
-    message.textContent = "The form is valid. Production sign-in requires a real authentication provider.";
+    // Demo-only session. This is NOT authentication and must be replaced by a real provider.
+    localStorage.setItem(SESSION_KEY, "active");
+    localStorage.setItem("labelguard_demo_user", emailValue);
+
+    if (message) message.textContent = "Sign-in successful. Opening your workspace…";
+
+    window.setTimeout(() => {
+        window.location.replace("index.html");
+    }, 350);
 });
