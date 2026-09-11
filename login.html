@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LabelGuard secure access portal">
+    <title>Sign in | LabelGuard</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main class="auth-shell">
+        <section class="auth-brand" aria-label="LabelGuard introduction">
+            <a class="brand" href="index.html" aria-label="Return to LabelGuard">
+                <span class="brand-mark">✓</span>
+                <span>
+                    <strong>LabelGuard</strong>
+                    <small>Compliance Intelligence</small>
+                </span>
+            </a>
+
+            <div class="brand-copy">
+                <span class="eyebrow">COMPLIANCE WORKSPACE</span>
+                <h1>Inspect smarter.<br>Decide with confidence.</h1>
+                <p>Access product inspections, compliance findings, rules, and inspection history from one workspace.</p>
+            </div>
+        </section>
+
+        <section class="auth-card" aria-labelledby="login-title">
+            <div class="card-heading">
+                <span class="eyebrow">WELCOME BACK</span>
+                <h2 id="login-title">Sign in to LabelGuard</h2>
+                <p>Use your authorized account to continue.</p>
+            </div>
+
+            <form id="login-form" novalidate>
+                <div class="field">
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                    <span class="field-error" id="email-error" role="alert"></span>
+                </div>
+
+                <div class="field">
+                    <div class="label-row">
+                        <label for="password">Password</label>
+                        <a href="#" class="muted-link" id="forgot-password">Forgot password?</a>
+                    </div>
+                    <div class="password-wrap">
+                        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="8">
+                        <button type="button" class="password-toggle" id="toggle-password" aria-label="Show password">Show</button>
+                    </div>
+                    <span class="field-error" id="password-error" role="alert"></span>
+                </div>
+
+                <button class="submit-btn" type="submit">Sign in <span>→</span></button>
+                <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="security-note">
+                <span>◈</span>
+                <p>Authentication is currently a frontend interface. Connect a production auth provider before using real credentials.</p>
+            </div>
+
+            <p class="back-link"><a href="index.html">← Back to LabelGuard</a></p>
+        </section>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>
