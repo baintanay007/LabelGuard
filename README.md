@@ -4,7 +4,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-LabelGuard-0f766e?style=for-the-badge)](https://baintanay007.github.io/LabelGuard/)
 [![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=111827)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 > A frontend prototype for inspecting packaged-product labels, reviewing regulatory declarations, and presenting compliance results in an enforcement-oriented workspace.
@@ -59,6 +59,9 @@ LabelGuard/
 ├── index.html     # Main application interface
 ├── style.css      # Application styling and responsive layout
 ├── script.js      # Client-side interactions and UI logic
+├── login.html     # Login interface
+├── login.css      # Login page styling
+├── login.js       # Login form validation and client-side auth flow
 └── README.md      # Project documentation
 ```
 
