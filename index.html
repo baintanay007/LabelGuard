@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script>
-    if (localStorage.getItem("labelguard_demo_session") !== "active") {
-        window.location.replace("login.html");
-    }
-</script>
 
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar">
@@ -37,7 +32,6 @@
         <div class="user-card">
             <div class="avatar">TA</div>
             <div class="user-info"><strong id="sidebar-user-name">Tanay</strong><small>Enforcement Officer</small></div>
-            <button class="more-btn" id="logout-btn" type="button" aria-label="Sign out">↪</button>
         </div>
     </div>
 </aside>
