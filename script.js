@@ -6,12 +6,7 @@
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const ALLOWED_IMAGE_TYPES = new Set(["image/png", "image/jpeg", "image/webp"]);
 const STORAGE_KEY = "labelguard_inspections";
-const SESSION_KEY = "labelguard_demo_session";
-const USER_KEY = "labelguard_demo_user";
 const DEMO_SCORE = 87;
-
-/* ================= DEMO SESSION GUARD ================= */
-if (localStorage.getItem(SESSION_KEY) !== "active") window.location.replace("login.html");
 
 let selectedFile = null;
 let currentPage = "dashboard";
@@ -45,12 +40,6 @@ const toast = $("toast");
 const toastTitle = $("toast-title");
 const toastMessage = $("toast-message");
 
-function logout() {
-    localStorage.removeItem(SESSION_KEY);
-    localStorage.removeItem(USER_KEY);
-    window.location.replace("login.html");
-}
-
 function improveAccessibility() {
     const nav = document.querySelector(".navigation");
     if (nav) nav.setAttribute("aria-label", "Primary navigation");
@@ -58,13 +47,6 @@ function improveAccessibility() {
     document.querySelectorAll("button").forEach((button) => { if (!button.type) button.type = "button"; });
     const iconButton = document.querySelector(".icon-button");
     if (iconButton) iconButton.setAttribute("aria-label", "View notifications");
-    const moreButton = document.querySelector(".more-btn");
-    if (moreButton) {
-        moreButton.textContent = "Logout";
-        moreButton.setAttribute("aria-label", "Log out of LabelGuard");
-        moreButton.title = "Log out";
-        moreButton.type = "button";
-    }
     document.querySelectorAll(".row-btn").forEach((button) => button.setAttribute("aria-label", "View inspection actions"));
     document.querySelectorAll(".form-group label").forEach((label) => {
         const input = label.parentElement?.querySelector("input, textarea, select");
@@ -214,7 +196,6 @@ function showToast(title, message) { if (!toast || !toastTitle || !toastMessage)
 window.showToast = showToast;
 
 document.querySelector(".icon-button")?.addEventListener("click", () => showToast("Notifications", "No new notifications in this frontend demo."));
-document.querySelector(".more-btn")?.addEventListener("click", logout);
 document.querySelectorAll(".row-btn").forEach((button) => button.addEventListener("click", () => showToast("Inspection actions", "Detailed row actions are planned for the backend version.")));
 document.querySelectorAll(".view-btn:not([data-inspection-id])").forEach((button) => button.addEventListener("click", () => showToast("Inspection record", "This sample record is available for demonstration.")));
 document.addEventListener("keydown", (event) => { if (event.ctrlKey && event.key.toLowerCase() === "k") { event.preventDefault(); openPage("inspection"); } });
