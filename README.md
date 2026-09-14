@@ -59,9 +59,6 @@ LabelGuard/
 ├── index.html     # Main application interface
 ├── style.css      # Application styling and responsive layout
 ├── script.js      # Client-side interactions and UI logic
-├── login.html     # Login interface
-├── login.css      # Login page styling
-├── login.js       # Login form validation and client-side auth flow
 └── README.md      # Project documentation
 ```
 
