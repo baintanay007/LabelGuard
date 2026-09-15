@@ -30,6 +30,15 @@ The application provides a structured workspace for reviewing product labels, tr
 - **Responsive interface** designed for desktop and smaller screens
 - **Clean enforcement-oriented UI** focused on fast review and decision making
 
+## Prototype Workflow
+
+The current interface follows a simple inspection flow:
+
+1. Open **New Inspection** and upload a product or package image.
+2. Enter available product details such as name, brand, manufacturer, and inspection location.
+3. Run the client-side analysis to display a simulated compliance assessment and declaration checks.
+4. Review the findings and save the inspection to the prototype's inspection history.
+
 ## Compliance Checks Represented
 
 The interface is designed around common packaged-product declarations, including:
