@@ -39,6 +39,14 @@ The current interface follows a simple inspection flow:
 3. Run the client-side analysis to display a simulated compliance assessment and declaration checks.
 4. Review the findings and save the inspection to the prototype's inspection history.
 
+## Current Limitations
+
+The current version is a frontend demonstration, so its inspection results should be treated as illustrative rather than authoritative. In particular:
+
+- Compliance analysis is simulated on the client side rather than produced by a validated regulatory engine.
+- Inspection data is handled within the prototype and is not backed by a production database.
+- Regulatory checks shown in the interface are not a substitute for verification against current official requirements.
+
 ## Compliance Checks Represented
 
 The interface is designed around common packaged-product declarations, including:
