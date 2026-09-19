@@ -30,6 +30,18 @@ The application provides a structured workspace for reviewing product labels, tr
 - **Responsive interface** designed for desktop and smaller screens
 - **Clean enforcement-oriented UI** focused on fast review and decision making
 
+## Application Sections
+
+The prototype is organized into five main workspace sections:
+
+| Section | Purpose |
+| --- | --- |
+| Dashboard | Summarizes inspection activity, status distribution, and recent inspections |
+| New Inspection | Captures a product image and supporting details for an inspection run |
+| Inspection History | Provides access to previously recorded inspection results |
+| Products | Provides a workspace for inspected product information |
+| Rule Configuration | Presents the interface for managing compliance criteria |
+
 ## Prototype Workflow
 
 The current interface follows a simple inspection flow:
